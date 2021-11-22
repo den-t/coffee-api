@@ -105,17 +105,18 @@ You can implement it in you personal projects or commercial projects. Please, fe
 
 ### Prerequisites
 
-- MySQL
+- Docker
 
 ### **Installing**
 
-1. Clone this repository `https://github.com/fernandohg97/coffee-api.git`.
-2. Edit database config in `app/db/database.js` setting your user and password.
-3. Run command `npm run createdb` to build the database.
-4. Run command `npm install` to install packages.
-5. Run command `npm start` to test the project.
-6. Go to `http://localhost:3000` in your browser.
+1. Start the MySQL server `docker run --name coffee-api-mysql -e MYSQL_ROOT_PASSWORD=coffee -p 3306:3306 -d mysql:8.0`.
+   1. For subsequent runs use `docker start coffee-api-mysql -p 3306:3306`.
+2. Run command `npm run createdb` to build the database.
+3. Run command `npm install` to install packages.
+4. Run command `npm start` to test the project.
+5. Go to `http://localhost:3000` in your browser.
 
+.
 ## License
 
 [MIT](https://github.com/fernandohg97/coffee-api/blob/master/LICENSE)

@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "createdb": "mysql -u root -p < app/db/coffee_menudb.sql",
+    "createdb": "cat app/db/coffee_menudb.sql app/db/coffee_data.sql app/db/coffee_stored_procedures.sql | docker exec -i coffee-api-mysql mysql -hlocalhost -uroot -pcoffee",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Fernando Hernandez",
@@ -17,7 +17,7 @@
     "http-errors": "^1.7.2",
     "method-override": "^3.0.0",
     "morgan": "^1.9.1",
-    "mysql": "^2.16.0",
+    "mysql2": "^2.3.3",
     "node-fetch": "^2.3.0",
     "path": "^0.12.7"
   },

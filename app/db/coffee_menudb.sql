@@ -8,7 +8,7 @@ create table if not exists category (
     category_id int unsigned not null auto_increment,
     category_name varchar(50) not null unique,
     created_at timestamp default current_timestamp not null,
-    updated_at timestamp not null,
+    updated_at timestamp default current_timestamp not null,
     primary key (category_id)
 );
 
@@ -20,7 +20,7 @@ create table if not exists product (
     product_image blob,
     category_id int unsigned,
     created_at timestamp default current_timestamp not null,
-    updated_at timestamp not null,
+    updated_at timestamp default current_timestamp not null,
     primary key (product_id),
     constraint FK_CategoryProduct foreign key (category_id) references category(category_id) on delete cascade on update cascade
 );
@@ -30,7 +30,7 @@ create table if not exists variant (
     variant_id int unsigned not null auto_increment,
     variant_name varchar(20) not null unique,
     created_at timestamp default current_timestamp not null,
-    updated_at timestamp not null,
+    updated_at timestamp default current_timestamp not null,
     primary key (variant_id)
 );
 
@@ -39,7 +39,7 @@ create table if not exists variant_values (
     value_id int unsigned not null auto_increment,
     value_name varchar(100) not null,
     created_at timestamp default current_timestamp not null,
-    updated_at timestamp not null,
+    updated_at timestamp default current_timestamp not null,
     product_id int unsigned,
     variant_id int unsigned,
     primary key (value_id),
@@ -53,7 +53,7 @@ create table if not exists sku (
     sku varchar(100) not null unique,
     price float not null,
     created_at timestamp default current_timestamp not null,
-    updated_at timestamp not null,
+    updated_at timestamp default current_timestamp not null,
     product_id int unsigned,
     primary key (sku_id),
     constraint FK_ProductSku foreign key (product_id) references product(product_id) on delete cascade on update cascade

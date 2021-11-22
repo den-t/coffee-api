@@ -1,4 +1,3 @@
-const mysql = require('mysql')
 const db = require('../db/db-connection')
 const query = require('../queries/queries')
 
